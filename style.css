@@ -1,0 +1,1166 @@
+/* ==========================================================================
+   CHRONO - Elegant Modern Clock Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Theme Variables & Base Setup
+   -------------------------------------------------------------------------- */
+:root {
+    /* Default: Midnight Cyberpunk */
+    --bg-gradient-1: #0d0f1b;
+    --bg-gradient-2: #181b30;
+    --blob-1: rgba(99, 102, 241, 0.35);
+    --blob-2: rgba(236, 72, 153, 0.25);
+    --blob-3: rgba(56, 189, 248, 0.25);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-bg-hover: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --accent-primary: #ec4899;
+    --accent-secondary: #38bdf8;
+    --accent-tertiary: #818cf8;
+
+    --hand-hour: #f8fafc;
+    --hand-min: #38bdf8;
+    --hand-sec: #ec4899;
+
+    --dial-bg: rgba(15, 23, 42, 0.65);
+    --dial-border: rgba(255, 255, 255, 0.15);
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Space Grotesk', monospace;
+}
+
+/* Theme: Obsidian Dark Glass */
+[data-theme="dark"] {
+    --bg-gradient-1: #090a0f;
+    --bg-gradient-2: #12141d;
+    --blob-1: rgba(255, 255, 255, 0.08);
+    --blob-2: rgba(148, 163, 184, 0.08);
+    --blob-3: rgba(71, 85, 105, 0.1);
+
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+
+    --text-main: #ffffff;
+    --text-muted: #64748b;
+
+    --accent-primary: #ffffff;
+    --accent-secondary: #94a3b8;
+    --accent-tertiary: #cbd5e1;
+
+    --hand-hour: #ffffff;
+    --hand-min: #cbd5e1;
+    --hand-sec: #38bdf8;
+
+    --dial-bg: rgba(18, 20, 29, 0.75);
+    --dial-border: rgba(255, 255, 255, 0.12);
+}
+
+/* Theme: Sunset Violet */
+[data-theme="sunset"] {
+    --bg-gradient-1: #1a0b2e;
+    --bg-gradient-2: #2d124d;
+    --blob-1: rgba(244, 63, 94, 0.35);
+    --blob-2: rgba(251, 146, 60, 0.3);
+    --blob-3: rgba(168, 85, 247, 0.3);
+
+    --glass-bg: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: 0 20px 50px rgba(26, 11, 46, 0.7);
+
+    --text-main: #fff7ed;
+    --text-muted: #cbd5e1;
+
+    --accent-primary: #fb923c;
+    --accent-secondary: #f43f5e;
+    --accent-tertiary: #c084fc;
+
+    --hand-hour: #fff7ed;
+    --hand-min: #c084fc;
+    --hand-sec: #fb923c;
+
+    --dial-bg: rgba(45, 18, 77, 0.65);
+    --dial-border: rgba(251, 146, 60, 0.25);
+}
+
+/* Theme: Emerald Mint */
+[data-theme="emerald"] {
+    --bg-gradient-1: #06201b;
+    --bg-gradient-2: #0d3830;
+    --blob-1: rgba(16, 185, 129, 0.35);
+    --blob-2: rgba(45, 212, 191, 0.25);
+    --blob-3: rgba(52, 211, 153, 0.2);
+
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(52, 211, 153, 0.2);
+    --glass-shadow: 0 20px 50px rgba(6, 32, 27, 0.7);
+
+    --text-main: #ecfdf5;
+    --text-muted: #6ee7b7;
+
+    --accent-primary: #10b981;
+    --accent-secondary: #2dd4bf;
+    --accent-tertiary: #34d399;
+
+    --hand-hour: #ecfdf5;
+    --hand-min: #2dd4bf;
+    --hand-sec: #10b981;
+
+    --dial-bg: rgba(13, 56, 48, 0.65);
+    --dial-border: rgba(16, 185, 129, 0.25);
+}
+
+/* Theme: Pure Crystal (Light Mode) */
+[data-theme="light"] {
+    --bg-gradient-1: #f1f5f9;
+    --bg-gradient-2: #e2e8f0;
+    --blob-1: rgba(99, 102, 241, 0.2);
+    --blob-2: rgba(236, 72, 153, 0.15);
+    --blob-3: rgba(56, 189, 248, 0.2);
+
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-bg-hover: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 20px 40px rgba(148, 163, 184, 0.3);
+
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+
+    --accent-primary: #4f46e5;
+    --accent-secondary: #0284c7;
+    --accent-tertiary: #d946ef;
+
+    --hand-hour: #0f172a;
+    --hand-min: #4f46e5;
+    --hand-sec: #d946ef;
+
+    --dial-bg: rgba(255, 255, 255, 0.85);
+    --dial-border: rgba(148, 163, 184, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2));
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+    transition: background 0.6s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. Background Ambient Animations
+   -------------------------------------------------------------------------- */
+.background-ambient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    transition: background 0.6s ease;
+    animation: floatBlob 18s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+    width: 450px;
+    height: 450px;
+    background: var(--blob-1);
+    top: -100px;
+    left: -100px;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--blob-2);
+    bottom: -80px;
+    right: -80px;
+    animation-delay: -6s;
+}
+
+.blob-3 {
+    width: 350px;
+    height: 350px;
+    background: var(--blob-3);
+    top: 40%;
+    left: 60%;
+    animation-delay: -12s;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(60px, -40px) scale(1.1); }
+    100% { transform: translate(-40px, 50px) scale(0.95); }
+}
+
+/* --------------------------------------------------------------------------
+   3. Main App Container & Layout
+   -------------------------------------------------------------------------- */
+.app-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 960px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 28px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    transition: all 0.4s ease;
+}
+
+/* Header & Nav */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 18px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+}
+
+.brand-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-primary);
+    filter: drop-shadow(0 0 8px var(--accent-primary));
+}
+
+.brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Tabs */
+.nav-tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 6px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    gap: 6px;
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.tab-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.tab-btn:hover {
+    color: var(--text-main);
+    background: var(--glass-bg-hover);
+}
+
+.tab-btn.active {
+    background: var(--glass-bg);
+    color: var(--accent-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--glass-border);
+}
+
+.alarm-badge {
+    background: var(--accent-primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Settings Bar */
+.settings-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.icon-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-btn:hover {
+    background: var(--glass-bg-hover);
+    transform: translateY(-2px);
+}
+
+.toggle-chip {
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+}
+
+.toggle-chip:hover {
+    background: var(--glass-bg-hover);
+    border-color: var(--accent-primary);
+}
+
+/* Theme Dropdown */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.theme-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 190px;
+    background: var(--bg-gradient-2);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+    z-index: 100;
+}
+
+.theme-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.theme-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-main);
+}
+
+.theme-option.active {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.theme-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.theme-dot.cyberpunk { background: linear-gradient(135deg, #ec4899, #38bdf8); }
+.theme-dot.dark { background: linear-gradient(135deg, #334155, #94a3b8); }
+.theme-dot.sunset { background: linear-gradient(135deg, #f43f5e, #fb923c); }
+.theme-dot.emerald { background: linear-gradient(135deg, #10b981, #2dd4bf); }
+.theme-dot.light { background: linear-gradient(135deg, #4f46e5, #0284c7); }
+
+/* --------------------------------------------------------------------------
+   4. Tab Views Layout
+   -------------------------------------------------------------------------- */
+.tab-view {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   5. Tab 1: Analog & Digital Clock Stage
+   -------------------------------------------------------------------------- */
+.clock-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 10px 0 20px 0;
+}
+
+.analog-clock-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-outer-ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary), var(--accent-primary));
+    opacity: 0.35;
+    filter: blur(15px);
+    animation: spinRing 25s linear infinite;
+}
+
+@keyframes spinRing {
+    to { transform: rotate(360deg); }
+}
+
+.analog-clock {
+    position: relative;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: var(--dial-bg);
+    border: 2px solid var(--dial-border);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dial Ticks */
+.dial-ticks {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+}
+
+.tick {
+    position: absolute;
+    width: 2px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    left: calc(50% - 1px);
+    top: 6px;
+    transform-origin: 1px 149px;
+}
+
+.tick.major {
+    width: 3px;
+    height: 12px;
+    background: var(--text-muted);
+    left: calc(50% - 1.5px);
+}
+
+/* Dial Numbers */
+.dial-numbers {
+    position: absolute;
+    inset: 0;
+}
+
+.dial-numbers span {
+    position: absolute;
+    inset: 16px;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.dial-numbers span b {
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
+    font-family: var(--font-display);
+}
+
+/* Clock Hands */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: 50% 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Smooth Hand Rotation transition when in tick mode */
+.hand.tick-mode {
+    transition: transform 0.2s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+.hour-hand {
+    width: 8px;
+    height: 75px;
+    margin-left: -4px;
+}
+
+.hour-hand .hand-body {
+    width: 100%;
+    height: 100%;
+    background: var(--hand-hour);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.min-hand {
+    width: 6px;
+    height: 105px;
+    margin-left: -3px;
+}
+
+.min-hand .hand-body {
+    width: 100%;
+    height: 100%;
+    background: var(--hand-min);
+    border-radius: 6px;
+    box-shadow: 0 0 12px var(--hand-min);
+}
+
+.sec-hand {
+    width: 2px;
+    height: 125px;
+    margin-left: -1px;
+    z-index: 12;
+}
+
+.sec-hand .hand-body {
+    width: 100%;
+    height: 100%;
+    background: var(--hand-sec);
+    box-shadow: 0 0 12px var(--hand-sec);
+}
+
+.sec-hand .hand-tail {
+    position: absolute;
+    bottom: -22px;
+    left: -3px;
+    width: 8px;
+    height: 22px;
+    background: var(--hand-sec);
+    border-radius: 4px;
+}
+
+.center-cap {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--hand-sec);
+    border: 3px solid var(--text-main);
+    z-index: 15;
+    box-shadow: 0 0 12px var(--hand-sec);
+}
+
+/* Digital Clock Card */
+.digital-clock-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 36px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.03);
+}
+
+.digital-time-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.digital-time {
+    font-size: 2.8rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    letter-spacing: 2px;
+    color: var(--text-main);
+    text-shadow: 0 0 20px var(--accent-primary);
+}
+
+.digital-ampm {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.digital-date {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.timezone-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Shared Utility Card & UI Controls
+   -------------------------------------------------------------------------- */
+.utility-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 28px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    opacity: 0.95;
+}
+
+.btn-secondary {
+    background: var(--glass-bg-hover);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+}
+
+.btn-outline:hover {
+    color: var(--text-main);
+    border-color: var(--text-muted);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Tab 2: Stopwatch Styling
+   -------------------------------------------------------------------------- */
+.stopwatch-display {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--text-main);
+    text-shadow: 0 0 25px var(--accent-primary);
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    width: 100%;
+    text-align: center;
+}
+
+.stopwatch-display .ms {
+    font-size: 2.2rem;
+    color: var(--accent-secondary);
+}
+
+.laps-container {
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    padding: 12px;
+}
+
+.empty-laps {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 12px;
+}
+
+.laps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lap-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: var(--glass-bg);
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: var(--font-display);
+}
+
+.lap-item .lap-no {
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. Tab 3: Timer Styling
+   -------------------------------------------------------------------------- */
+.preset-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.preset-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.preset-btn:hover {
+    color: var(--text-main);
+    border-color: var(--accent-primary);
+}
+
+.timer-progress-wrapper {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-svg {
+    width: 220px;
+    height: 220px;
+    transform: rotate(-90deg);
+}
+
+.timer-bg-circle {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 10;
+}
+
+.timer-fg-circle {
+    fill: none;
+    stroke: var(--accent-primary);
+    stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 597; /* 2 * PI * 95 */
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.3s linear;
+}
+
+.timer-display-inner {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-inputs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.timer-inputs input {
+    width: 48px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    text-align: center;
+    outline: none;
+}
+
+.timer-inputs input:focus {
+    border-color: var(--accent-primary);
+}
+
+.timer-inputs span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.timer-time-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--text-main);
+}
+
+/* --------------------------------------------------------------------------
+   9. Tab 4: Alarm Styling
+   -------------------------------------------------------------------------- */
+.alarm-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.time-picker-input, .text-input {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.time-picker-input {
+    flex: 1;
+    min-width: 130px;
+    font-family: var(--font-display);
+}
+
+.text-input {
+    flex: 2;
+    min-width: 180px;
+}
+
+.time-picker-input:focus, .text-input:focus {
+    border-color: var(--accent-primary);
+}
+
+.alarms-list-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sub-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.alarms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.empty-alarms {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 16px;
+}
+
+.alarm-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.alarm-time-info .time {
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-family: var(--font-display);
+
+}
+
+.alarm-time-info .label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.alarm-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Switch Toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: .3s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+.delete-alarm-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+
+.delete-alarm-btn:hover {
+    color: #ef4444;
+}
+
+/* --------------------------------------------------------------------------
+   10. Alarm Notification Modal
+   -------------------------------------------------------------------------- */
+.alarm-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.alarm-modal-content {
+    background: var(--bg-gradient-2);
+    border: 1px solid var(--glass-border);
+    padding: 36px 48px;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+}
+
+.alarm-bell-icon {
+    font-size: 3.5rem;
+    animation: bellRing 0.8s infinite alternate ease-in-out;
+}
+
+@keyframes bellRing {
+    0% { transform: rotate(-20deg); }
+    100% { transform: rotate(20deg); }
+}
+
+/* --------------------------------------------------------------------------
+   11. Media Queries / Mobile Responsiveness
+   -------------------------------------------------------------------------- */
+@media (max-width: 680px) {
+    .app-container {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-tabs {
+        justify-content: space-between;
+        overflow-x: auto;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .settings-bar {
+        justify-content: flex-end;
+    }
+
+    .analog-clock-wrapper {
+        width: 270px;
+        height: 270px;
+    }
+
+    .analog-clock {
+        width: 260px;
+        height: 260px;
+    }
+
+    .hour-hand { height: 60px; }
+    .min-hand { height: 85px; }
+    .sec-hand { height: 105px; }
+
+    .digital-time {
+        font-size: 2.2rem;
+    }
+
+    .stopwatch-display {
+        font-size: 2.6rem;
+    }
+}
